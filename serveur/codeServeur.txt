@@ -1,7 +1,7 @@
 const dgram = require('dgram');
 const server = dgram.createSocket('udp4');
 
-const serverPort = 50001; // Port du serveur
+const serverPort = your port server; // Port du serveur
 
 let pcAddress = null;
 let pcPort = null;
