@@ -1,0 +1,56 @@
+const dgram = require('dgram');
+const server = dgram.createSocket('udp4');
+
+const serverPort = 50001; // Port du serveur
+
+let pcAddress = null;
+let pcPort = null;
+let activeConnection = false; // Connexion avec le PC active
+
+// Écoute des messages entrants
+server.on('message', (msg, rinfo) => {
+  console.log(`Message reçu: ${msg.toString()} de ${rinfo.address}:${rinfo.port}`);
+
+  if (msg.toString() === 'StartConnexionToComputer') {
+    pcAddress = rinfo.address;
+    pcPort = rinfo.port;
+    activeConnection = true;
+    console.log('Connexion avec le PC activée');
+  } else if (msg.toString() === 'CloseConnexionToComputer') {
+    pcAddress = null;
+    pcPort = null;
+    activeConnection = false;
+    console.log('Connexion avec le PC désactivée');
+  }
+
+  // Si le message ne provient pas du PC et que la connexion avec le PC est active, le retransmettre au PC
+  if (activeConnection && pcAddress && pcPort && rinfo.address !== pcAddress || rinfo.port !== pcPort) {
+    if(pcPort !== null){
+      server.send(msg, pcPort, pcAddress, (error) => {
+        if (error) {
+          console.log("Erreur lors de la retransmission du message: ", error);
+        } else {
+          console.log(`Message retransmis au PC: ${msg.toString()} (${msg.length} octets)`);
+        }
+      });
+    } else {
+      console.log("Le port du PC n'est pas défini");
+    }
+  }
+});
+
+server.on('listening', () => {
+  const address = server.address();
+  console.log(`Serveur à l'écoute ${address.address}:${address.port}`);
+});
+
+server.on('error', (error) => {
+  console.log("Une erreur s'est produite: ", error);
+});
+
+server.on('close', () => {
+  console.log("Le serveur a été arrêté");
+});
+
+// Le serveur commence à écouter sur le port spécifié
+server.bind(serverPort);
