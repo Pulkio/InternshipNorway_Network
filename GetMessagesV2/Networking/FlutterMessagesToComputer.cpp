@@ -51,8 +51,8 @@ int FlutterMessagesToComputer::SetupServerAddress() {
     // Configure l'adresse du serveur.
     serverAddress = {};
     serverAddress.sin_family = AF_INET;
-    serverAddress.sin_port = htons(50001); // Port du serveur
-    inet_pton(AF_INET, "35.228.26.217", &(serverAddress.sin_addr)); // Adresse IP du serveur
+    serverAddress.sin_port = htons(you port address); // Port du serveur
+    inet_pton(AF_INET, "your ip address", &(serverAddress.sin_addr)); // Adresse IP du serveur
     return 0;
 }
 
