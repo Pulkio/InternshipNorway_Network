@@ -29,8 +29,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   // The IP address and port of the server.
-  final String serverIp = '35.228.26.217';
-  final int serverPort = 50001;
+  final String serverIp = 'your server ip adress';
+  final int serverPort = your port adress;
 
   // This controller is responsible for reading the input field's text.
   final TextEditingController messageController = TextEditingController();
