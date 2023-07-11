@@ -80,19 +80,4 @@ void UFlutterMessagesToComputerAdapter::ListenForMessages()
     }
 
 
-
-
-
-
-    /*
-
-    // Nous lançons une tâche asynchrone pour écouter les messages.
-    // Cela permet à notre jeu de continuer à fonctionner pendant que nous attendons les messages.
-    AsyncTask(ENamedThreads::AnyBackgroundThreadNormalTask, [this]() {
-        // Nous enregistrons un message de journalisation indiquant que nous avons lancé notre tâche asynchrone.
-        UE_LOG(LogTemp, Error, TEXT("Asynchronus TASK..."));
-
-        // Nous appelons la méthode ListenForMessages de notre objet flutterMessages pour commencer à écouter les messages.
-        flutterMessages->ListenForMessages();
-        }); */
 }
