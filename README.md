@@ -41,6 +41,7 @@ Here's how the code works:
 There are the files MyGameInstance.cpp and .h, which constitute the game instance. So, remember to set your default instance as MyGameInstance. MyGameInstance initializes FlutterMessagesToComputerAdapteur. The FlutterMessagesToComputerAdapteur class bridges MyGameInstance, which is the game instance, and FlutterMessagesToComputer which is pure C++ code, handling the sending and receiving of messages.
 
 In the level blueprint, remember to create an EventGraph. In this event graph, you should place three events:
+
 ![level_BP](https://github.com/Pulkio/InternshipNorway_Network/assets/57195076/9537a8f6-06b6-4112-b873-8afe46a26d1e)
 
     An EventBeginPlay connected to CreateMyWidgetHUD widget, connected to SET, then connected to Add to Viewport.
@@ -49,8 +50,10 @@ In the level blueprint, remember to create an EventGraph. In this event graph, y
 
     Finally, an Event R (which I put in but you can change) which, when pressed, calls Cast To MyGameInstance, then Reset Counter Computer Adapter.
     
-You also need to create the HUD. 
+You also need to create the HUD and be carefull about the naming to keep the logic between the code and the HUD. 
+
 ![HUD_Widget](https://github.com/Pulkio/InternshipNorway_Network/assets/57195076/3c04967b-7fc8-4893-b736-b162b63e5c68)
 
-In the blueprint of my HUD, insert the SetTextMessages function, connected to SetText with a target variable TB Messages, which is a TextWidget.    
+In the blueprint of my HUD, insert the SetTextMessages function, connected to SetText with a target variable TB Messages, which is a TextWidget.
+
 ![HUD_BP](https://github.com/Pulkio/InternshipNorway_Network/assets/57195076/de7b6b60-d9ac-47b2-ba4b-27fc86ab90a5)
