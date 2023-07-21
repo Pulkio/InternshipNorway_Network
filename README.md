@@ -44,11 +44,11 @@ In the level blueprint, remember to create an EventGraph. In this event graph, y
 
 ![level_BP](https://github.com/Pulkio/InternshipNorway_Network/assets/57195076/9537a8f6-06b6-4112-b873-8afe46a26d1e)
 
-    An EventBeginPlay connected to CreateMyWidgetHUD widget, connected to SET, then connected to Add to Viewport.
+An EventBeginPlay connected to CreateMyWidgetHUD widget, connected to SET, then connected to Add to Viewport.
 
-    Another event: Event Tick connected to Cast To MyGameInstance then GetLastMessage and SetTextMessages which targets the HUD.
+Another event: Event Tick connected to Cast To MyGameInstance then GetLastMessage and SetTextMessages which targets the HUD.
 
-    Finally, an Event R (which I put in but you can change) which, when pressed, calls Cast To MyGameInstance, then Reset Counter Computer Adapter.
+Finally, an Event R (which I put in but you can change) which, when pressed, calls Cast To MyGameInstance, then Reset Counter Computer Adapter.
     
 You also need to create the HUD and be carefull about the naming to keep the logic between the code and the HUD. 
 
