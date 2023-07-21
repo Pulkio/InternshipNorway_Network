@@ -17,7 +17,7 @@ The server is hosted on Google Cloud, taking advantage of the free trial period 
 
 # UDP Messaging and Firewall Bypass
 
-Due to the project's target deployment in a school network, one challenge was to bypass the Unreal Engine's firewall. By default, incoming UDP packets would be blocked by the firewall. However, by establishing the connection from Unreal Engine to the Google Cloud server first, the server is then able to respond and the UDP packets can pass without issues.
+Due to the project's target deployment in a school network, one challenge was to bypass the university firewall. By default, incoming UDP packets would be blocked by the firewall. However, by establishing the connection from Unreal Engine to the Google Cloud server first, the server is then able to respond and the UDP packets can pass without issues.
 
 # Unreal Engine and Winsock
 
