@@ -15,11 +15,11 @@ The code for the Flutter application can be found in the applicationFlutter dire
 
 The server is hosted on Google Cloud, taking advantage of the free trial period of 2 months. It's a Node.js server that listens for messages from the Flutter app and forwards them to Unreal Engine.
 
-#UDP Messaging and Firewall Bypass
+# UDP Messaging and Firewall Bypass
 
 Due to the project's target deployment in a school network, one challenge was to bypass the Unreal Engine's firewall. By default, incoming UDP packets would be blocked by the firewall. However, by establishing the connection from Unreal Engine to the Google Cloud server first, the server is then able to respond and the UDP packets can pass without issues.
 
-#Unreal Engine and Winsock
+# Unreal Engine and Winsock
 
 Unreal Engine has capabilities for sending UDP packets but has limited support for reading them, hence, I used Winsock and wrote a C++ function to send and listen for UDP messages. This function then sends the messages to Unreal Engine's logs. The corresponding code can be found in the GetMessagesV2 directory.
 # Instructions
